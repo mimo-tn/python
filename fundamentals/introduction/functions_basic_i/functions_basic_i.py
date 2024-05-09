@@ -4,11 +4,11 @@ def number_of_food_groups():
 print(number_of_food_groups())
 # it wil print 5
 
-# #2
-# def number_of_military_branches():
-#     return 5
-# print(number_of_days_in_a_week_silicon_or_triangle_sides() + number_of_military_branches())
-# it will print error NameError: name 'number_of_days_in_a_week_silicon_or_triangle_sides' is not defined
+#2
+def number_of_military_branches():
+    return 5
+print(number_of_days_in_a_week_silicon_or_triangle_sides() + number_of_military_branches())
+#it will print error NameError: name 'number_of_days_in_a_week_silicon_or_triangle_sides' is not defined
 
 #3
 def number_of_books_on_hold():
@@ -31,12 +31,12 @@ x = number_of_great_lakes()
 print(x)
 # it wil print none
 
-# #6
-# def add(b,c):
-#     print(b+c)
-# print(add(1,2) + add(2,3))
-# #print 3 ,5 and error 
-# #7
+#6
+def add(b,c):
+    print(b+c)
+print(add(1,2) + add(2,3))
+#print 3 ,5 and error 
+#7
 def concatenate(b,c):
     return str(b)+str(c)
 print(concatenate(2,5))
