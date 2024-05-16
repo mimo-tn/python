@@ -53,6 +53,7 @@ class user:
         print("***this is the all rib of user {}:***".format(self.name))
         for i in range(len(self.list_account)):
             self.list_account[i].display_account_info()
+        
 mimo=user("mimo","amine@gamil.com","1")
 mimo.create_account(0.20,0,"1")
 mimo.create_account(0.30,25,"2")
@@ -64,4 +65,5 @@ tarek.diplay_all_account()
 mimo.make_deposit(100,"1")
 mimo.make_withdrawal(20,"1")
 mimo.display_user_blance("1")
+
 
