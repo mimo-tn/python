@@ -1,0 +1,1 @@
+milk = Product('milk','dairy product',2)

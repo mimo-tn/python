@@ -19,6 +19,5 @@ class hand(Deck):
                 if card_played == card.string_val +" of "+ card.suit:
                     test = True 
                     self.point_card_val = card.point_val
-                    # self.card_play(card)
                     self.hand_of_player.remove(card)
         return test
