@@ -1,0 +1,24 @@
+INSERT INTO 
+mydb.users(first_name,last_name,email,created_at,updated_at)
+VALUES
+('amine','yaakoubi','aaaa@gmail.com',NOW(),NOW()),
+('lydia','yaakoubi','bbbb@gmail.com',NOW(),NOW()),
+('yathreb','chida','cccc@gmail.com',NOW(),NOW());
+
+SELECT * FROM mydb.users;
+SELECT * FROM mydb.users WHERE email = 'aaaa@gmail.com';
+SELECT * FROM mydb.users WHERE id = 3;
+
+UPDATE mydb.users 
+SET 
+    last_name = 'Pancakes'
+WHERE
+    id = 3;
+
+DELETE FROM mydb.users 
+WHERE
+    id = 2;
+
+SELECT *
+FROM mydb.users
+ORDER BY first_name DESC;
