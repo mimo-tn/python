@@ -1,0 +1,104 @@
+INSERT INTO
+mydbbooks_schema.users(first_name,last_name)
+VALUES
+('Jane','Amsden'),
+('Emily','Dixon'),
+('Theodore','Dostoevsky'),
+('William','Shapiro'),
+('Lao','Xiu');
+
+INSERT INTO 
+mydbbooks_schema.books(title)
+VALUES
+('C Sharp'),
+('Java'),
+('Python'),
+('PHP'),
+('Ruby');
+
+SET SQL_SAFE_UPDATES = 0;
+UPDATE books SET
+title = "C#"
+WHERE
+title = "C Sharp";
+
+UPDATE users SET
+first_name = "Bill"
+WHERE
+id = 4;
+
+INSERT INTO 
+mydbbooks_schema.favorits(book_id,user_id)
+VALUES
+(1,1),
+(2,1);
+
+INSERT INTO 
+mydbbooks_schema.favorits(book_id,user_id)
+VALUES
+(1,2),
+(2,2),
+(3,2);
+
+INSERT INTO 
+mydbbooks_schema.favorits(book_id,user_id)
+VALUES
+(1,3),
+(2,3),
+(3,3),
+(4,3);
+
+INSERT INTO 
+mydbbooks_schema.favorits(book_id,user_id)
+VALUES
+(1,4),
+(2,4),
+(3,4),
+(4,4),
+(5,4);
+
+SELECT * FROM users 
+LEFT JOIN favorits
+    ON
+users.id = favorits.user_id
+LEFT JOIN books
+    ON
+books.id = favorits.book_id
+WHERE
+favorits.book_id = 3;
+
+DELETE from favorits
+where book_id = 3 AND user_id = 1;
+
+INSERT into favorits (book_id,user_id) 
+VALUES (2, 5);
+
+SELECT * FROM users 
+LEFT JOIN favorits
+    ON
+users.id = favorits.user_id
+LEFT JOIN books
+    ON
+books.id = favorits.book_id
+WHERE
+user_id = 5 AND favorits.book_id = 2;
+
+SELECT title AS Book_name FROM users 
+LEFT JOIN favorits
+    ON
+users.id = favorits.user_id
+LEFT JOIN books
+    ON
+books.id = favorits.book_id
+WHERE
+user_id = 3;
+
+SELECT CONCAT_WS(' ',first_name,last_name) AS name FROM users 
+LEFT JOIN favorits
+    ON
+users.id = favorits.user_id
+LEFT JOIN books
+    ON
+books.id = favorits.book_id
+WHERE
+favorits.book_id = 5;
