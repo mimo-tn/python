@@ -1,0 +1,21 @@
+.container_img{
+    display: flex;
+    width: 400px;
+    height: 100px;
+    /* border: 1px solid rgba(0, 0, 0, 0.223); */
+    margin: 0 auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 12px 12px 2px 1px rgba(16, 16, 17, 0.2);
+}
+.foot{
+    display: flex;
+    justify-content: space-around;
+}
+.heading{
+    margin: 0 auto;
+}
+.formm{
+    margin-top: 30px;
+}

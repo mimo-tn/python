@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>counter</title>
+</head>
+<body>
+    <div class="jumbotron">
+        <h1 class="display-4">Counter</h1>
+        <p class="lead">{{session['count']}} time</p>
+        <hr class="my-4">
+        <div class="formm">
+            <form class="row g-3" action='/submit_counter' method='post'>
+                <div class="col-auto">
+                    <label for="counter_num" class="visually-hidden">Specify the increment of the counter</label>
+                    <input type="text" class="form-control" id="counter_num" placeholder="" name = "submit_number"><br>
+                    <input type="submit" class="btn btn-info mb-3">
+                </div>
+            </form>
+        </div>
+        <hr class="my-4">
+        <div class="foot">
+            <a class="btn btn-success btn-lg" href="/" role="button">Click</a>
+            <a class="btn btn-secondary btn-lg" href="/add_two" role="button">Add two Visits!</a>
+            <a class="btn btn-danger btn-lg" href="/destroy_session" role="button">Reset</a>
+        </div>
+    </div>
+</body>
+</html>
