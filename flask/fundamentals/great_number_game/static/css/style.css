@@ -1,0 +1,49 @@
+.i_height{
+    height: 400px;
+}
+.card_height{
+    height: 400px;
+}
+.flexy{
+    display: flex;
+}
+.auto_midlle{
+    margin: 0 auto;
+}
+.second_part_body, .third_part_body{
+    display: flex;
+    height: 100px;
+    width: 100%;
+    /* border: 1px solid rgba(0, 0, 0, 0.223); */
+    margin: 0 auto;
+    justify-content: space-around;
+}
+.my_body{
+    display: flex;
+    flex-direction: column;
+    height: 280px;
+    /* border: 1px solid rgba(0, 0, 0, 0.223); */
+    
+}
+.container_img{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 115px;
+    /* border: 1px solid rgba(0, 0, 0, 0.223); */
+    margin: 0 auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 12px 12px 2px 1px rgba(16, 16, 17, 0.2);
+    align-items: center;
+}
+.foot{
+    display: flex;
+    justify-content: space-around;
+}
+.heading{
+    margin: 0 auto;
+}
+.formm{
+    margin-top: 30px;
+}
