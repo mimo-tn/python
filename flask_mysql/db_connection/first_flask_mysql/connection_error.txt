@@ -1,0 +1,6 @@
+1 - by deleting the user the connection is no longer established with the database, authentication is no longer possible
+    RuntimeError
+    RuntimeError: 'cryptography' package is required for sha256_password or caching_sha2_password auth methods
+2 - deleting the password make the same RuntimeError
+3 - by deleting the name of the data base the class can no longer find the data base for the connection
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on 'ocalhost' ([Errno 8] nodename nor servname provided, or not known)")
