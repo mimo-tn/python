@@ -16,7 +16,10 @@
     flex-direction: column;
     width: 70%;
 }
-
+.show{
+    border: 1px solid;
+    width: 30%;
+}
 .container,.container_read{
     display: flex;
     flex-direction: column;

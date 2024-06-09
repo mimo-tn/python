@@ -18,8 +18,30 @@ class User:
             users.append(cls(user))
         return users
     @classmethod
+    def get_one(cls,user_id):
+        query = """
+                SELECT * FROM users
+                WHERE id = %(id)s
+                """
+        return connectToMySQL(cls.db).query_db(query, {"id":user_id})
+    @classmethod
     def save(cls, data):
         query = """ INSERT INTO users (first_name, last_name, email, created_at, updated_at)
                     VALUES (%(first_name)s, %(last_name)s, %(email)s, NOW(), NOW());
                 """
         return connectToMySQL(cls.db).query_db(query,data)
+    @classmethod
+    def update(cls, data):
+        query = """
+                UPDATE users
+                SET first_name = %(first_name)s, last_name = %(last_name)s, email = %(email)s, updated_at = NOW()
+                WHERE id = %(id)s
+                """
+        return connectToMySQL(cls.db).query_db(query,data)
+    @classmethod
+    def delete(cls,user_id):
+        query = """
+                DELETE FROM users
+                WHERE id = %(id)s
+                """
+        return connectToMySQL(cls.db).query_db(query,{"id":user_id})
