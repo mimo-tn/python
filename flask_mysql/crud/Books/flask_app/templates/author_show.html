@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Book</title>
+</head>
+<body>
+    <div class="my_container">
+        <div class="my_nav">
+            <div id="carouselExample" class="carousel slide bg-dark">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="{{url_for('static', filename = 'img/slide_1.jpeg')}}" class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 i_height" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{url_for('static', filename = 'img/coding-dojo.png')}}" class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 i_height" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{url_for('static', filename = 'img/slide3.jpeg')}}" class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 i_height" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+        <div class="my_body">
+            <div class="first_part_body">
+
+            </div>
+            <div class="second_part_body">
+                <h1 class="titre">Welcome To Book Assignment !</h1><br>
+            </div>
+            <div class="third_part_body">
+                <div class="card">
+                    <div class="card-body">
+                        <h4>{{result.name}} Favorites</h4>
+                        <table class="table table-hover table-striped table-light">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Titile</th>
+                                    <th scope="col"># of pages</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for book in result.books %}
+                                <tr>
+                                    <th scope="row">{{book.id}}</th>
+                                    <td>{{book.title}}</td>
+                                    <td>{{book.num_of_pages}}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        <a class="btn btn-secondary btn-lg" href="{{url_for('index')}}" role="button">Home</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5>Add Author's Favorite</h5>
+                        <form action="/save/favorite/book" method="POST">
+                            <div class="mb-3">
+                                <label for="book_id" class="form-label">Book:</label>
+                                <select class="form-select" aria-label="Default select example" name="book_id" id="book_id">
+                                    {% for book in all_books %}
+                                    <option value="{{book.id}}">{{book.title}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <input type="hidden" name="author_id" value="{{result.id}}">
+                            <button type="submit" class="btn btn-secondary">Add</button>
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+    <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+</body>
+</html>

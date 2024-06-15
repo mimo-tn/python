@@ -49,5 +49,4 @@ def update_form():
     # data={'id':request.form["id"]}
     Ninja.update(request.form)
     dojo_id = request.form["dojo_id"]
-    print(f"je suis la {dojo_id}")
     return redirect(f'/show/{dojo_id}')
