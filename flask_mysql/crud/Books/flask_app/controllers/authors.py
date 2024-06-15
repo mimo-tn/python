@@ -10,10 +10,13 @@ def index():
     return render_template("index.html",authors = authors_results)
 @app.route('/save/author', methods=["POST"])
 def save_author():
-    data = {
-        'name' : request.form['name']
-    }
-    Author.save(data)
+    if not Author.validate_author(request.form):
+        return redirect('/')
+    else:
+        data = {
+            'name' : request.form['name']
+        }
+        Author.save(data)
     return redirect('/')
 
 @app.route('/author/<int:id>')

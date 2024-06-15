@@ -1,5 +1,6 @@
 from flask_app.config.mysqlconnection import db, connectToMySQL
 from flask_app.models import book
+from flask import flash
 class Author:
     def __init__(self,data):
         self.id = data["id"]
@@ -40,3 +41,10 @@ class Author:
             }
             author.books.append(book.Book(book_favorits))
         return author
+    @staticmethod
+    def validate_author(author):
+        is_valid = True
+        if (len(author["name"])) < 3:
+            flash("Name must be at least 3 characters.")
+            is_valid = False
+        return is_valid
