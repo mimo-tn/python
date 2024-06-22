@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Recommend</title>
+</head>
+<body>
+    <div class="my_container">
+        <div class="my_nav">
+            <div id="carouselExample" class="carousel slide bg-dark">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="{{url_for('static', filename = 'img/slide3.jpeg')}}" class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 i_height" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{url_for('static', filename = 'img/slide_1.jpeg')}}" class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 i_height" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{url_for('static', filename = 'img/slide3.jpeg')}}" class="bd-placeholder-img bd-placeholder-img-lg d-block w-100 i_height" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            <nav class="navbar" style="background-color: #ebeef1;">
+                <div class="container-fluid">
+                    <a class="navbar-brand">Welcome {{session['first_name']}}</a>
+                    <div class="d-flex menu_nav">
+                        <a class="btn btn-outline-secondary" href="/all_recommands" role="button">  Back  </a>
+                        <diV>    
+                            <a class="btn btn-outline-secondary" href="/destroy_session" role="button">Logout</a>
+                        </diV>
+                        
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="my_body" style="flex-direction: column;">
+            <div class="comment">
+                <form action="/create/recommands/new" method="POST">
+                    <div class="card" style="width: 100%">
+                        <div class="card-footer py-3 border-0" style="background-color: #f8f9fa;">
+                            <div class="d-flex flex-start w-100 flex-column">
+                                {% if session["form"] == "form3" %}
+                                    {% with messages = get_flashed_messages(with_categories=true) %}
+                                        {% if messages %}
+                                            {% for category, message in messages %}
+                                                {% if "error" in category %}
+                                                    <div class="alert alert-danger" role="alert">
+                                                        {{message}}!!
+                                                    </div>
+                                                {% endif %}    
+                                            {% endfor %}
+                                        {% endif %}
+                                    {% endwith %}
+                                    {% endif %}
+                                <div class ="head_bloc d-flex justify-content-between grid">
+                                    <div class ="head_bloc_left w-100 d-flex flex-column g-col-6">
+                                        <div data-mdb-input-init class="form-outline w-100">
+                                            <label class="form-label" for="title">Title:</label>
+                                            <input type="text" class="form-control" id="title" rows="4" style="background: #fff;" name="title" value="{{ get_flashed_messages(with_categories=false)[0]}}"></textarea>
+                                        </div>
+                                        <div data-mdb-input-init class="form-outline w-100">
+                                            <label class="form-label" for="network">Network:</label>
+                                            <input type="text" class="form-control" id="network" rows="4" style="background: #fff;" name="network" value="{{ get_flashed_messages(with_categories=false)[1]}}">
+                                        </div>
+                                    </div>
+                                    <div class ="head_bloc_right w-100 d-flex flex-column g-col-6 justify-content-between">
+                                        <div data-mdb-input-init class="form-outline w-100">
+                                            <label class="form-label" for="release_date">Release Date:</label>
+                                            <input type="date" class="form-control" id="release_date" name="release_date" style="background: #fff;" value="{{ get_flashed_messages(with_categories=false)[3]}}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div data-mdb-input-init class="form-outline w-100">
+                                    <label class="form-label" for="comments">Comment:</label>
+                                    <textarea class="form-control" id="comments" rows="7" style="background: #fff;" name="comments">{{ get_flashed_messages(with_categories=false)[2]}}</textarea>
+                                </div>
+                            </div>
+                            <div class="float-end mt-2 pt-1">
+                                <input  type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-sm" value="Submit">
+                                <button id="cancelButton" type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-primary btn-sm">
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        // JavaScript to clear the textarea when the "Cancel" button is clicked
+        document.getElementById('cancelButton').addEventListener('click', function() {
+            document.getElementById('content').value = '';
+        });
+    </script>
+    <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+</body>
+</html>
