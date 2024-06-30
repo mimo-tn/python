@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>DojoWeather</title>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- nav part -->
+        <div class="container_nav flex-elt">
+            <div class="nav-bar flex-elt">
+                <h1>DojoWeather</h1>
+                <ul class="menu flex-elt">
+                    <li>
+                        <a href="#" onclick="loading('34.181','-118.309','0cf32ead7b9081b8120899bc914916aa')">Burbank</a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="loading('41.850','-87.650','0cf32ead7b9081b8120899bc914916aa')">Chicago</a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="loading('17.800','-88.300','0cf32ead7b9081b8120899bc914916aa')">Dallas</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- container part -->
+        <div class="container flex-elt">
+            <div class="container_top flex-elt">
+                <h2>San Jose</h2>
+                <div>
+                    <label>Show temparature in</label>
+                    <select name="temperature-scale" onchange="convert(this)">
+                        <option selected>°C</option>
+                        <option>°F</option>
+                    </select>
+                </div>
+            </div>
+            <div class="container_bottom flex-elt">
+                <div class="col flex-elt">
+                    <div class="top_col flex-eltl">
+                        <h1>Today</h1>
+                        <img src="assets/some_rain.png">
+                        <h3>Some rain</h3>
+                    </div>
+                    <div class="bottom_col flex-elt">
+                        <span class="bottom_col_left" id="span1">24°</span>
+                        <span class="bottom_col_right" id="span2">28°</span>
+                    </div>
+                </div>
+                <div class="col flex-elt">
+                    <div class="top_col flex-eltl">
+                        <h1>Tomorrow</h1>
+                        <img src="assets/some_sun.png">
+                        <h3>Some sun</h3>
+                    </div>
+                    <div class="bottom_col flex-elt">
+                        <span class="bottom_col_left" id="span3">27°</span>
+                        <span class="bottom_col_right" id="span4">19°</span>
+                    </div>
+                </div>
+                <div class="col flex-elt">
+                    <div class="top_col flex-eltl">
+                        <h1>Friday</h1>
+                        <img src="assets/some_clouds.png">
+                        <h3>Some cloud</h3>
+                    </div>
+                    <div class="bottom_col flex-elt">
+                        <span class="bottom_col_left" id="span5">21°</span>
+                        <span class="bottom_col_right" id="span6">16°</span>
+                    </div>
+                </div>
+                <div class="col flex-elt">
+                    <div class="top_col flex-elt">
+                        <h1>Saturday</h1>
+                        <img src="assets/some_sun.png">
+                        <h3>Some sun</h3>
+                    </div>
+                    <div class="bottom_col flex-elt">
+                        <span class="bottom_col_left" id="span7">26°</span>
+                        <span class="bottom_col_right" id="span8">21°</span>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <!-- cookie policy message -->
+        <div class="cookie flex-elt" id="cookie">
+            <img src="assets/cookie.png">
+            <div class="middle_cookie">
+                <h2>Stop! Cookie time.</h2>
+                    <p>
+                        We use cookies (sadly not the edible ones) to personalize <br>
+                        content and ads, to  provide social media features and to <br>
+                         analyze our site traffic. 
+                        <a href="#">Read more...</a>
+                    </p>
+            </div>
+            <button class="btn" onclick="remove_cookie()">I Accept</button>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
